@@ -145,9 +145,34 @@ header {
     justify-content: center;
 }
 .col.work-pic{
-    max-width: 30%;
+    /*max-width: 30%;*/
     width: 250px;
 }
 .col.work-pic img {
-    width: 100%
+    width: 100%;
+    border-radius: 50px
+}
+.col.work-detail{
+    margin: 0 15% 0 5%;
+    text-align: left;
+}
+.work-company{
+    margin-bottom: 10px;
+}
+.work-company a{
+    text-decoration: none;
+    color: #2c80b8
+}
+.work-location{
+    margin-bottom: 10px;
+    color: #d2600c /*6D4C41*/
+}
+.work-title{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.work-desc{
+    max-width: 550px;
+    font-size: 16px;
 }
