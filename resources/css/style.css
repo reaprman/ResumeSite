@@ -142,7 +142,8 @@ header {
 }
 .work-exp{
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
+    margin-bottom: 5%;
 }
 .col.work-pic{
     /*max-width: 30%;*/
@@ -155,6 +156,7 @@ header {
 .col.work-detail{
     margin: 0 15% 0 5%;
     text-align: left;
+    line-height: 1.5;
 }
 .work-company{
     margin-bottom: 10px;
@@ -171,8 +173,55 @@ header {
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 16px;
+    white-space: nowrap;
 }
 .work-desc{
     max-width: 550px;
     font-size: 16px;
+    line-height: 1.5;
+}
+.sect-bio {
+    color: #fff;
+}
+.sect-bio h2:after{
+    background-color:#000;
+}
+.bio-container {
+    text-align: center;
+}
+.bio-container p {
+    text-align: left;
+    font-size: 18px;
+}
+.bio-quote {
+    font-size: 25px;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+.bio-quote:before,
+.bio-quote:after{
+    content: "~~~~";
+    display: inline-block;
+    height: 2px;
+    color: #000;
+    width: 100px;
+    margin-bottom: 5px;
+}
+.sect-projects{
+    background-color: #ecf0f1;
+}
+.proj-row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.proj-col{
+    width: 30%;
+    border: 5px solid gray;
+    margin: 10px;
+}
+.proj-col img {
+    width: 100%;
+    padding: 5px;
 }
