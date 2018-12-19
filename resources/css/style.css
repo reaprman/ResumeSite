@@ -8,14 +8,13 @@
     box-sizing: border-box;
 }
 
-html,
 body {
     background-color:  #3498db;
     font-family: 'Lato', 'Arial', sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
-
+    position: relative;
 }
 
 /*class used to clear float after an element. Used on the parent element to remove from child elements. */
@@ -111,7 +110,7 @@ header {
 .head-txt-box {
     color: #ecf0f1;
     position: absolute;
-    top: 60%;
+    top: 12%;
     left: 10%;
 }
 .head-txt-box h1 {
@@ -180,6 +179,9 @@ header {
     font-size: 16px;
     line-height: 1.5;
 }
+/***************************************/
+/* BIO */
+/***************************************/
 .sect-bio {
     color: #fff;
 }
@@ -207,6 +209,9 @@ header {
     width: 100px;
     margin-bottom: 5px;
 }
+/***************************************/
+/* PROJECTS */
+/***************************************/
 .sect-projects{
     background-color: #ecf0f1;
 }
@@ -224,4 +229,85 @@ header {
 .proj-col img {
     width: 100%;
     padding: 5px;
+    cursor: pointer;
+}
+/***************************************/
+/* MODAL */
+/***************************************/
+.modal{
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.show-modal{
+    visibility: visible;
+    transform: scale(1.2);
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 0.25 0s, transform 0.25s;
+}
+.modal-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fdfdfd;
+    text-align: center;
+    border-radius: 0.75rem;
+    max-width: 500px;
+    
+}
+.item{
+    display: none;
+}
+.active{
+    display: block;
+}
+.item img{
+    width: 80%;
+}
+.carousel-arrows{
+    opacity: .5;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    font-size: 30px;
+    width: 10%;
+}
+.carousel-arrows:hover{
+    opacity: .9;
+}
+.prev,
+.next{
+    top: 50%;
+    position: relative;
+    background: transparent;
+    border: none;
+}
+.carousel-left{
+    left: 0px;
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    background-image: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+}
+.carousel-right{
+    right: 0px;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+}
+.dot{
+    background-color: #fff;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: #ccc 2px solid;
+}
+.dot:hover{
+    background-color: gray;
 }

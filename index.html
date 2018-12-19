@@ -178,23 +178,55 @@
                 <h2>Project Portfolio</h2>
             </div>
             <div class="proj-row">
-                <div class="proj-col">
-                    <img alt="Omnifoods Project" src="resources/img/omnifood1.PNG">
+                <div class="proj-col" >
+                    <img alt="Omnifoods Project" src="resources/img/omnifood1.PNG" onclick="modalToggle()">
                 </div>
-                <div class="proj-col">
+                <div class="proj-col" onclick="">
                     <img alt="Restaurant Reviews Project" src="resources/img/omnifood2.png">
                 </div>
-                <div class="proj-col">
+                <div class="proj-col" onclick="">
                     <img alt="Coming Soon" src="resources/img/coming-soon-neon-sign-brick-wall-background-87865865.jpg">
                 </div>
             </div>
         </section>
+        <!--Modal-->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="carousel" id="carousel">
+                    <div class="item fade active">
+                        <img src="resources/img/omnifood1.PNG">
+                    </div>
+                    <div class="item fade">
+                        <img src="resources/img/omnifood2.PNG">
+                    </div>
+                    <div class="item fade">
+                        <img src="resources/img/omnifood3.PNG">
+                    </div>
+                </div>
+                <div class="carousel-arrows carousel-left">
+                    <button class="prev">&#10094;</button>
+                </div>
+                <div class="carousel-arrows carousel-right">
+                   <button class="next">&#10095;</button> 
+                </div>
+                <br>
+                <div class="slider-dots">
+                    <button class="dot"></button>
+                    <button class="dot"></button>
+                    <button class="dot"></button>
+                </div>
+            </div>
+        </div>
         <section class="sect-contact" id="contact">
             <div class="row">
                 <h2>Beautiful Day for a Neighboor....</h2>
             </div>
+            <div class="row">
+                <p></p>
+            </div>
+            
         </section>
 
-    
+    <script type="text/javascript" src="resources/js/script.js"></script>
     </body>
 </html>
