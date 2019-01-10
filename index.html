@@ -179,12 +179,12 @@
             </div>
             <div class="proj-row">
                 <div class="proj-col" >
-                    <img alt="Omnifoods Project" src="resources/img/omnifood1.PNG" onclick="modalToggle()">
+                    <img alt="Omnifoods Project" src="resources/img/omnifood1.PNG" onclick="modalToggle(this.src)">
                 </div>
-                <div class="proj-col" onclick="">
-                    <img alt="Restaurant Reviews Project" src="resources/img/restaurantreview2.jpg" onclick="modalToggle()">
+                <div class="proj-col">
+                    <img alt="Restaurant Reviews Project" src="resources/img/restaurantreview1.jpg" onclick="modalToggle(this.src)">
                 </div>
-                <div class="proj-col" onclick="">
+                <div class="proj-col">
                     <img alt="Coming Soon" src="resources/img/coming-soon-neon-sign-brick-wall-background-87865865.jpg">
                 </div>
             </div>
@@ -194,13 +194,13 @@
             <div class="modal-content">
                 <div class="carousel" id="carousel">
                     <div class="item fade active">
-                        <img src="resources/img/omnifood1.PNG">
+                        <img id="mPic1">
                     </div>
                     <div class="item fade">
-                        <img src="resources/img/omnifood2.PNG">
+                        <img id="mPic2">
                     </div>
                     <div class="item fade">
-                        <img src="resources/img/omnifood3.PNG">
+                        <img id="mPic3">
                     </div>
                 </div>
                 <div class="carousel-arrows carousel-left">
@@ -216,7 +216,7 @@
                     <button class="dot"></button>
                 </div>
             </div>
-        </div>
+        </div> 
         <section class="sect-contact" id="contact">
             <div class="row">
                 <h2>Beautiful Day for a Neighboor....</h2>
