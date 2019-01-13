@@ -1,3 +1,8 @@
+let slideIdx = 1;
+let slides = document.getElementsByClassName('item');
+let dots = document.getElementsByClassName('dot');
+let firstRun = true;
+
 document.addEventListener('DOMContentLoaded', (event) => {
     rage();
 });
@@ -11,13 +16,22 @@ const rage = () => {
     })
 }
 function modalToggle(imgPath){
-    
+    slides[slideIdx-1].classList.add('active');
+    dots[slideIdx-1].classList.add('dot-active');
     const modal = document.getElementById('modal');
     if(!modal.classList.contains('show-modal')){
        fillModalImg(imgPath); 
     }
      
     modal.classList.toggle('show-modal');
+    if(!firstRun){
+        slides[slideIdx-1].classList.remove('active');
+        dots[slideIdx-1].classList.remove('dot-active');
+        slideIdx = 1;
+        firstRun = true;
+        return;
+    }
+    firstRun = false;
 }
 
 function fillModalImg(imgPath){
@@ -35,4 +49,30 @@ function fillModalImg(imgPath){
     imgModal2.src = img2;
     imgModal3.src = img3;
 
+}
+
+function modalArrows(direction) {
+    displayModal(slideIdx += direction);
+}
+
+function modalSelect(selection){
+    slideIdx = selection;
+    displayModal(selection);
+}
+
+function displayModal(idx){
+
+    if(idx > slides.length){
+        slideIdx = 1;
+    }
+    if(idx == 0){ slideIdx = slides.length;}
+    for (i = 0; i < slides.length; i++){
+        if(slides[i].classList.contains('active')){
+            slides[i].classList.remove('active');
+            slides[slideIdx-1].classList.add('active');
+            dots[i].classList.remove('dot-active');
+            dots[slideIdx-1].classList.add('dot-active');
+            return;
+        }
+    }
 }

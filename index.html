@@ -193,27 +193,27 @@
         <div class="modal" id="modal">
             <div class="modal-content">
                 <div class="carousel" id="carousel">
-                    <div class="item fade active">
+                    <div class="item">
                         <img id="mPic1">
                     </div>
-                    <div class="item fade">
+                    <div class="item">
                         <img id="mPic2">
                     </div>
-                    <div class="item fade">
+                    <div class="item">
                         <img id="mPic3">
                     </div>
                 </div>
-                <div class="carousel-arrows carousel-left">
-                    <button class="prev">&#10094;</button>
+                <div class="carousel-arrows carousel-left" onclick="modalArrows(-1)">
+                    <button class="prev" onclick="modalArrows(-1)">&#10094;</button>
                 </div>
-                <div class="carousel-arrows carousel-right">
-                   <button class="next">&#10095;</button> 
+                <div class="carousel-arrows carousel-right" onclick="modalArrows(1)">
+                   <button class="next" onclick="modalArrows(1)">&#10095;</button> 
                 </div>
                 <br>
                 <div class="slider-dots">
-                    <button class="dot"></button>
-                    <button class="dot"></button>
-                    <button class="dot"></button>
+                    <button class="dot" onclick="modalSelect(1)"></button>
+                    <button class="dot" onclick="modalSelect(2)"></button>
+                    <button class="dot" onclick="modalSelect(3)"></button>
                 </div>
             </div>
         </div> 

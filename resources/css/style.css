@@ -313,6 +313,10 @@ header {
     border-radius: 50px;
     border: #ccc 2px solid;
 }
-.dot:hover{
+.dot-active{
     background-color: gray;
 }
+.dot:hover{
+    background-color: lightgray;
+}
+
