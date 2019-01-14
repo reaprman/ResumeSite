@@ -319,4 +319,27 @@ header {
 .dot:hover{
     background-color: lightgray;
 }
-
+/***************************************/
+/* Contact */
+/***************************************/
+.sect-contact{
+    background-color: #fff;
+}
+.sect-p{
+    text-align: center;
+    font-size: 25px;
+    display: inline-flex;
+    margin-right: 10%;
+    margin-left: 10%;
+    max-width: 80%
+}
+.sect-p::before,
+.sect-p::after{
+    content: " ";
+    position: relative;
+    margin-top: 45px;
+    height: 2px;
+    width: 200px;
+    top: 50%;
+    background-color: #2c80b8;
+}
