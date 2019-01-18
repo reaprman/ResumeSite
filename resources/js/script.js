@@ -3,6 +3,7 @@ let slides = document.getElementsByClassName('item');
 let dots = document.getElementsByClassName('dot');
 let firstRun = true;
 
+AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
     rage();
 });

@@ -5,28 +5,33 @@
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="vendors/css/animate.css">
         <link rel="stylesheet" href="vendors/css/normalize.css">
-        <link href="https://unpkg.com/ionicons@4.4.7/dist/css/ionicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+        <link rel="stylesheet" href="https://unpkg.com/ionicons@4.4.7/dist/css/ionicons.min.css">
         <!--<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"-->
         <title>Hi, Ryan Here</title>
     </head>
     <body>
         <header>
-            <nav>
+            <nav class data-aos="sticky"
+                data-aos="fade-down"
+                data-aos-anchor="#exp"
+                data-aos-duration="50"
+                data-aos-anchor-placement="top-top">
                 <div class="row">
                     <ul class="main-nav">
-                        <li><a href="#exp">Xp</a></li>
+                        <li><a href="#exp">Exp</a></li>
                         <li><a href="#bio">Bio</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="head-txt-box">
-                    <h1>Welcome</h1>
-                    <p>I'm Ryan</p>
-                    <a class="linkedin-link" href="https://www.linkedin.com/in/ryan-logan21/" target="_blank"><i class="ion-logo-linkedin"></i></a>
-                    <a class="github-link" href="https://github.com/reaprman" target="_blank"><i class="ion-logo-github"></i></a>
-                </div>
             </nav>
+            <div class="head-txt-box">
+                <h1>Welcome</h1>
+                <p>I'm Ryan</p>
+                <a class="linkedin-link" href="https://www.linkedin.com/in/ryan-logan21/" target="_blank"><i class="ion-logo-linkedin"></i></a>
+                <a class="github-link" href="https://github.com/reaprman" target="_blank"><i class="ion-logo-github"></i></a>
+            </div>
         </header>
 
         <section class="sect-exp" id="exp">
@@ -227,9 +232,15 @@
                    So feel free to stop by...I'm looking forward to enjoying this new community and journey!
                 </p>
             </div>
+            <br>
+            <div class="contact-links">
+                <a class="linkedin-link" href="https://www.linkedin.com/in/ryan-logan21/" target="_blank"><i class="ion-logo-linkedin"></i></a>
+                <a class="github-link" href="https://github.com/reaprman" target="_blank"><i class="ion-logo-github"></i></a>
+            </div>
             
         </section>
 
-    <script type="text/javascript" src="resources/js/script.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script type="text/javascript" src="resources/js/script.js"></script>
     </body>
 </html>
