@@ -125,7 +125,15 @@ header {
 [data-aos="sticky"].aos-animate .main-nav li a:visited{
     color: #000;
 }
-
+.logo{
+    height: 100px;
+    float: left;
+    pointer-events: none;
+}
+[data-aos="sticky"].aos-animate .logo{
+    height: 60px;
+    pointer-events: auto;
+}
 .head-txt-box {
     color: #ecf0f1;
     position: absolute;
