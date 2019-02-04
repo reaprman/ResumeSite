@@ -7,6 +7,23 @@ AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
     rage();
 });
+document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", () =>{
+    let nav = document.getElementsByClassName("main-nav")[0];
+    if(nav.style.display == "none" || nav.style.display == ""){
+        nav.style.display = "inline-block";
+    }else{
+        nav.style.display = "none";
+    }
+    
+    let icon = document.querySelector(".mobile-nav-icon i");
+    if(icon.classList.contains("ion-md-menu")){
+        icon.classList.toggle("ion-md-menu");
+        icon.classList.toggle("ion-md-close");
+    }else{
+        icon.classList.toggle("ion-md-menu");
+        icon.classList.toggle("ion-md-close");
+    }
+})
 
 const rage = () => {
 
