@@ -70,6 +70,7 @@ h2:after {
     margin: 0 auto;
     margin-top: 30px;
 }
+
 /***************************************/
 /* HEADER */
 /***************************************/
@@ -145,11 +146,8 @@ header {
 .head-txt-box {
     color: #ecf0f1;
     position: absolute;
-    width: 100%;
-    padding: 0 5%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 10%;
 }
 .head-txt-box h1 {
     margin-bottom: 15px;
@@ -169,6 +167,7 @@ header {
 .ion-logo-linkedin {
     color: #0077B5;
 }
+
 /***************************************/
 /* EXP */
 /***************************************/
@@ -190,10 +189,37 @@ header {
     margin-left: 15px;
     min-width: 135px;
 }
+.col.work-detail{
+    margin: 0 15% 0 5%;
+    text-align: left;
+    line-height: 1.5;
+}
+.work-company{
+    margin-bottom: 10px;
+}
+.work-company a{
+    text-decoration: none;
+    color: #2c80b8
+}
+.work-location{
+    margin-bottom: 10px;
+    color: #d2600c /*6D4C41*/
+}
+.work-title{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap;
+}
+.work-desc{
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.5;
+}
 /***************************************/
 /* BIO */
 /***************************************/
-/*.sect-bio {
+.sect-bio {
     color: #fff;
     background-color: #3498db;
 }
@@ -227,7 +253,6 @@ header {
 .bio-quote::after{
     margin-left: 10px;
 }
-*/
 /***************************************/
 /* PROJECTS */
 /***************************************/
@@ -283,7 +308,7 @@ header {
     text-align: center;
     border-radius: 0.75rem;
     max-width: 500px;
-    width: 80%;
+    
 }
 .item{
     display: none;
