@@ -14,7 +14,6 @@ body {
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
-    position: relative;
     max-width: 1650px;
     margin-right: auto;
     margin-left: auto;
@@ -147,9 +146,10 @@ header {
     position: absolute;
     width: 100%;
     padding: 0 5%;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin-left: 5%;
 }
 .head-txt-box h1 {
     margin-bottom: 15px;
@@ -190,10 +190,37 @@ header {
     margin-left: 15px;
     min-width: 135px;
 }
+.col.work-detail{
+    margin: 0 15% 0 5%;
+    text-align: left;
+    line-height: 1.5;
+}
+.work-company{
+    margin-bottom: 10px;
+}
+.work-company a{
+    text-decoration: none;
+    color: #2c80b8
+}
+.work-location{
+    margin-bottom: 10px;
+    color: #d2600c /*6D4C41*/
+}
+.work-title{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap;
+}
+.work-desc{
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.5;
+}
 /***************************************/
 /* BIO */
 /***************************************/
-/*.sect-bio {
+ .sect-bio {
     color: #fff;
     background-color: #3498db;
 }
@@ -206,11 +233,11 @@ header {
 .bio-container p {
     text-align: left;
     font-size: 18px;
+    padding: 1%;
 }
 .bio-quote {
     font-size: 25px;
     margin-bottom: 15px;
-    white-space: nowrap;
 }
 .bio-quote:before,
 .bio-quote:after{
@@ -373,9 +400,6 @@ header {
     .work-exp{
         flex-wrap: wrap;
     }
-    .head-txt-box{
-        top: 8%;
-    }
     .sect-exp{
         text-align: left;
     }
@@ -423,5 +447,17 @@ header {
     .proj-col{
         width: 45%;
         min-width: 350px;
+    }
+}
+@media only screen and (max-width: 868px){
+    .bio-quote:before,
+    .bio-quote:after{
+        width: 50px;
+    }
+}
+@media only screen and (max-width: 685px){
+    .bio-quote:before,
+    .bio-quote:after{
+        width: 0;
     }
 }
