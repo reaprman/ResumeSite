@@ -16,7 +16,7 @@ body {
     font-size: 20px;
     text-rendering: optimizeLegibility;
     max-width: 1650px;
-    width: 100vw;
+    width: 100%;
     padding: 0;
     margin-right: auto;
     margin-left: auto;
