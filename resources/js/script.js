@@ -53,11 +53,12 @@ function modalToggle(imgPath){
 }
 
 function fillModalImg(imgPath){
-    //let imgArr = imgPath.split(".");
-    let imgName = imgPath.slice(0,-1);
-    let img1 = `${imgName}1`; //`${imgName}1.${imgArr[3]}`
-    let img2 = `${imgName}2`; 
-    let img3 = `${imgName}3`;
+    let imgArr = imgPath.split(".");
+    let imgArr2 = imgArr[2].split("/");
+    let imgName = imgArr2[4].slice(0, -1);
+    let img1 = `resources/img/${imgName}1.${imgArr[3]}`;
+    let img2 = `resources/img/${imgName}2.${imgArr[3]}`;
+    let img3 = `resources/img/${imgName}3.${imgArr[3]}`;
 
     const imgModal1 = document.getElementById('mPic1');
     const imgModal2 = document.getElementById('mPic2');
