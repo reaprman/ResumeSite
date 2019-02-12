@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     background-color:  #fff;
     font-family: 'Lato', 'Arial', sans-serif;
@@ -15,6 +16,8 @@ body {
     font-size: 20px;
     text-rendering: optimizeLegibility;
     max-width: 1650px;
+    width: 100vw;
+    padding: 0;
     margin-right: auto;
     margin-left: auto;
     overflow-x: hidden;
@@ -310,7 +313,7 @@ header {
     text-align: center;
     border-radius: 0.75rem;
     max-width: 500px;
-    width: 80%;
+    width: 70%;
 }
 .item{
     display: none;
@@ -459,5 +462,9 @@ header {
     .bio-quote:before,
     .bio-quote:after{
         width: 0;
+    }
+    .head-txt-box{
+        width: 80%;
+        margin-left: 0;
     }
 }
