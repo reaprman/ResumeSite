@@ -147,7 +147,7 @@ header {
 .head-txt-box {
     color: #ecf0f1;
     position: absolute;
-    width: 100%;
+    width: 80%;
     padding: 0 5%;
     top: 80%;
     left: 50%;
@@ -171,6 +171,9 @@ header {
 }
 .ion-logo-linkedin {
     color: #0077B5;
+}
+.ion-md-mail {
+    color: #b10606
 }
 /***************************************/
 /* EXP */
@@ -464,7 +467,6 @@ header {
         width: 0;
     }
     .head-txt-box{
-        width: 80%;
         margin-left: 0;
     }
 }
