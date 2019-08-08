@@ -42,7 +42,7 @@ const rage = () => {
 }
 function modalToggle(imgPath){
     let icon = document.querySelector(".mobile-nav-icon i");
-    if(icon.classList.contains('ion-md-menu')){
+    if(icon.classList.contains('ion-md-close')){
         icon.classList.toggle("ion-md-menu");
         icon.classList.toggle("ion-md-close");
     }
