@@ -14,6 +14,8 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
     }else{
         nav.style.display = "none";
     }
+
+    
     
     let icon = document.querySelector(".mobile-nav-icon i");
     if(icon.classList.contains("ion-md-menu")){
@@ -22,6 +24,11 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
     }else{
         icon.classList.toggle("ion-md-menu");
         icon.classList.toggle("ion-md-close");
+    }
+    
+    const modal = document.getElementById('modal');
+    if(modal.classList.contains('show-modal')){
+        modal.classList.toggle('show-modal');
     }
 })
 
@@ -34,6 +41,11 @@ const rage = () => {
     })
 }
 function modalToggle(imgPath){
+    let icon = document.querySelector(".mobile-nav-icon i");
+    if(icon.classList.contains('ion-md-menu')){
+        icon.classList.toggle("ion-md-menu");
+        icon.classList.toggle("ion-md-close");
+    }
     slides[slideIdx-1].classList.add('active');
     dots[slideIdx-1].classList.add('dot-active');
     const modal = document.getElementById('modal');
