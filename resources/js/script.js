@@ -26,7 +26,7 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         icon.classList.toggle("ion-md-close");
     }
     
-    const modal = document.getElementsByClassName("item active");
+    const modal = document.getElementById('modal');
     if(modal.classList.contains('show-modal')){
         //modal.classList.toggle('show-modal');
         // fix it here
