@@ -51,7 +51,7 @@ function modalToggle(imgPath){
     }
     let icon = document.querySelector(".mobile-nav-icon i");
     let nav = document.getElementsByClassName("main-nav")[0];
-    if(icon.classList.contains('ion-md-close') && modal.classList.contains('show-modal')){
+    if(icon.classList.contains('ion-md-close') && firstRun == true){
         nav.style.display = "none";
         icon.classList.toggle("ion-md-menu");
         icon.classList.toggle("ion-md-close");
