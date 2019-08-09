@@ -26,9 +26,11 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         icon.classList.toggle("ion-md-close");
     }
     
-    const modal = document.getElementById('modal');
+    const modal = document.getElementsByClassName("item active");
     if(modal.classList.contains('show-modal')){
-        modal.classList.toggle('show-modal');
+        //modal.classList.toggle('show-modal');
+        // fix it here
+        modalToggle(this.id);
     }
 })
 
