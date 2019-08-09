@@ -43,18 +43,18 @@ const rage = () => {
     })
 }
 function modalToggle(imgPath){
-    let icon = document.querySelector(".mobile-nav-icon i");
-    let nav = document.getElementsByClassName("main-nav")[0];
-    if(icon.classList.contains('ion-md-close')){
-        nav.style.display = "none";
-        icon.classList.toggle("ion-md-menu");
-        icon.classList.toggle("ion-md-close");
-    }
     slides[slideIdx-1].classList.add('active');
     dots[slideIdx-1].classList.add('dot-active');
     const modal = document.getElementById('modal');
     if(!modal.classList.contains('show-modal')){
        fillModalImg(imgPath); 
+    }
+    let icon = document.querySelector(".mobile-nav-icon i");
+    let nav = document.getElementsByClassName("main-nav")[0];
+    if(icon.classList.contains('ion-md-close') && modal.classList.contains('show-modal')){
+        nav.style.display = "none";
+        icon.classList.toggle("ion-md-menu");
+        icon.classList.toggle("ion-md-close");
     }
      
     modal.classList.toggle('show-modal');
