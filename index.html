@@ -48,11 +48,11 @@
             </div>
             <div class="row work-exp">
                 <div class="col work-pic">
-                    <a href="https://enablon.com/" target="_blank"><img alt="Wolters Kluwer | Enablon" src="resources/img/wolters.jpg"></a>
+                    <a href="https://enablon.com/" rel="noreferrer" target="_blank"><img alt="Wolters Kluwer | Enablon" src="resources/img/wolters.jpg"></a>
                 </div>
                 <div class="col work-detail">
                     <div class="work-company">
-                        <h3><a href="https://enablon.com/" target="_blank">Wolters Kluwer | Enablon</a></h3>
+                        <h3><a href="https://enablon.com/" rel="noreferrer" target="_blank">Wolters Kluwer | Enablon</a></h3>
                     </div>
                     <div class="work-location">
                         Chicago, IL
@@ -71,11 +71,11 @@
             </div>
             <div class="row work-exp">
                 <div class="col work-pic">
-                    <a href="https://www.udacity.com/" target="_blank"><img alt="Udacity" src="resources/img/udacity-logo.jpg"></a>
+                    <a href="https://www.udacity.com/" rel="noreferrer" target="_blank"><img alt="Udacity" src="resources/img/udacity-logo.jpg"></a>
                 </div>
                 <div class="col work-detail">
                     <div class="work-company">
-                        <h3><a href="https://www.udacity.com/" target="_blank">Udacity</a></h3>
+                        <h3><a href="https://www.udacity.com/" rel="noreferrer" target="_blank">Udacity</a></h3>
                     </div>
                     <div class="work-location">
                         Mountain View, CA | Online Learning Platform
@@ -95,11 +95,11 @@
             </div>
             <div class="row work-exp">
                 <div class="col work-pic">
-                    <a href="https://enablon.com/" target="_blank"><img alt="Wolters Kluwer | Enablon" src="resources/img/wolters.jpg"></a>
+                    <a href="https://enablon.com/" rel="noreferrer" target="_blank"><img alt="Wolters Kluwer | Enablon" src="resources/img/wolters.jpg"></a>
                 </div>
                 <div class="col work-detail">
                     <div class="work-company">
-                        <h3><a href="https://enablon.com/" target="_blank">Wolters Kluwer | Enablon</a></h3>
+                        <h3><a href="https://enablon.com/" rel="noreferrer" target="_blank">Wolters Kluwer | Enablon</a></h3>
                     </div>
                     <div class="work-location">
                         Chicago, IL
@@ -117,11 +117,11 @@
             </div>
             <div class="row work-exp">
                 <div class="col work-pic">
-                    <a href="https://enablon.com/" target="_blank"><img alt="Wolters Kluwer | Enablon" src="resources/img/wolters.jpg"></a>
+                    <a href="https://enablon.com/" rel="noreferrer" target="_blank"><img alt="Wolters Kluwer | Enablon" src="resources/img/wolters.jpg"></a>
                 </div>
                 <div class="col work-detail">
                     <div class="work-company">
-                        <h3><a href="https://enablon.com/" target="_blank">Wolters Kluwer | Enablon</a></h3>
+                        <h3><a href="https://enablon.com/" rel="noreferrer" target="_blank">Wolters Kluwer | Enablon</a></h3>
                     </div>
                     <div class="work-location">
                         Chicago, IL
@@ -140,11 +140,11 @@
             </div>
             <div class="row work-exp">
                 <div class="col work-pic">
-                    <a href="https://www.moreycorp.com/" target="_blank"><img alt="Morey Corporation" src="resources/img/morey-logo.jpg"></a>
+                    <a href="https://www.moreycorp.com/" rel="noreferrer" target="_blank"><img alt="Morey Corporation" src="resources/img/morey-logo.jpg"></a>
                 </div>
                 <div class="col work-detail">
                     <div class="work-company">
-                        <h3><a href="https://www.moreycorp.com/" target="_blank">Morey Corporation</a></h3>
+                        <h3><a href="https://www.moreycorp.com/" rel="noreferrer" target="_blank">Morey Corporation</a></h3>
                     </div>
                     <div class="work-location">
                         Woodridge, IL
@@ -186,7 +186,8 @@
                     deferred plan in the back of my mind and coming into 2017 I decided to take action &#128170. This led me to completing 4 training courses over the past 2 years, covering front-end and back-end
                     web development. I also applied for the Grow with Google Scholarship program entering into 2017 and was luckily accepted. After completion, this led to me being offered an opportunity to complete Udacity's Mobile 
                     Web Specialist Nanodegree program, which I did in Nov 2018. Technology moves at a rapid pace and I enjoy the learning process and the feeling of self-improvement that comes with new knowledge. This won't be 
-                    the end of my self-improvement journey. The culmination of this journey has been long and worthwhile, and at the end of the day that's all that matters. 
+                    the end of my self-
+                    improvement journey. The culmination of this journey has been long and worthwhile, and at the end of the day that's all that matters. 
                 </p>
             </div>
         </section>
@@ -196,13 +197,28 @@
             </div>
             <div class="proj-row">
                 <div class="proj-col" >
-                    <img alt="Omnifoods Project" src="resources/img/omnifood1.PNG" onclick="modalToggle(this.src)">
+                    <picture>
+                        <source type="image/webp" 
+                        srcset='app/img/omnifood1-1600.webp 1600w, app/img/omnifood1_2x.webp 800w, app/img/omnifood1_1x.webp 400w'
+                        sizes='(max-width: 400px) 400px, (max-width: 800px) 800px, (max-width: 1600px) 1600px'>
+                        <img  src="app/img/omnifood1.PNG" alt="Omnifoods Project" onclick="modalToggle(this.src)">
+                    </picture>
                 </div>
                 <div class="proj-col">
-                    <img alt="Restaurant Reviews Project" src="resources/img/restaurantreview1.jpg" onclick="modalToggle(this.src)">
+                    <picture>
+                        <source type="image/webp"
+                        srcset="app/img/restaurantreview1-1600.webp 1600w, app/img/restaurantreview1_2x.webp 800w, app/img/restaurantreview1_1x.webp 400w"
+                        sizes='(max-width: 400px) 400px, (max-width: 800px) 800px, (max-width: 1600px) 1600px'>
+                        <img src="app/img/restaurantreview1.jpg" alt="Restaurant Reviews Project" onclick="modalToggle(this.src)">
+                    </picture>
                 </div>
                 <div class="proj-col">
-                    <img alt="Coming Soon" src="resources/img/coming-soon-neon-sign-brick-wall-background-87865865.jpg">
+                    <picture>
+                        <source type="image/webp"
+                        srcset='app/img/coming-soon-neon-sign-brick-wall-background-87865865-1600.webp 1600w, app/img/coming-soon-neon-sign-brick-wall-background-87865865_2x.webp 800w, app/img/coming-soon-neon-sign-brick-wall-background-87865865_1x.webp 400w'
+                        sizes='(max-width: 400px) 400px, (max-width: 800px) 800px, (max-width: 1600px) 1600px'> 
+                        <img src="app/img/coming-soon-neon-sign-brick-wall-background-87865865.jpg" alt="Coming Soon">
+                    </picture>  
                 </div>
             </div>
         </section>
@@ -245,9 +261,9 @@
             </div>
             <br>
             <div class="contact-links">
-                <a class="linkedin-link" href="https://www.linkedin.com/in/ryan-logan21/" target="_blank"><i class="ion-logo-linkedin"></i></a>
-                <a class="github-link" href="https://github.com/reaprman" target="_blank"><i class="ion-logo-github"></i></a>
-                <a class="email-link" href="mailto:test@ryanNoreply.com"></a><i class="ion-md-mail"></i></a>
+                <a class="linkedin-link" href="https://www.linkedin.com/in/ryan-logan21/" rel="noreferrer" target="_blank">Ryan Logan Linkedin<i class="ion-logo-linkedin"></i></a>
+                <a class="github-link" href="https://github.com/reaprman" rel="noreferrer" target="_blank"><i class="ion-logo-github">Ryan Logan Github</i></a>
+                <a class="email-link" href="mailto:test@ryanNoreply.com"></a><i class="ion-md-mail">Ryan Logan Email</i></a>
                 
             </div>
               

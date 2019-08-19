@@ -1,0 +1,52 @@
+{
+  "name": "resumesite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reaprman/ResumeSite.git"
+  },
+  "author": "Ryan Logan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reaprman/ResumeSite/issues"
+  },
+  "homepage": "https://github.com/reaprman/ResumeSite#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "del": "^5.0.0",
+    "eslint-config-google": "^0.13.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-html": "^0.7.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-load-plugins": "^2.0.1",
+    "gulp-responsive": "^2.14.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "run-sequence": "^2.2.1",
+    "sharp": "^0.23.0",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "retainLines": true
+  },
+  "dependencies": {}
+}
