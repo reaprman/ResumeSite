@@ -38,7 +38,21 @@ const runSequence = require('run-sequence');
 const babel = require('gulp-babel');
 const gulpIf = require('gulp-if');
 
-// Resize and/or Format image files
+// Clean output directory
+gulp.task('clean', () => del(['app/*'], {dot: true}));
+
+// Optimize images
+gulp.task('images', () =>
+    gulp.src('app/img/**/*')
+    .pipe($.cache($.imagemin({
+        progressive: true,
+        interlaced: true
+    })))
+    .pipe(gulp.dest('app/img'))
+    .pipe($.size({title: 'image'}))
+);
+
+// Resize and/or Format main image files
 gulp.task('resize', function() {
     return gulp.src('resources/img/*.{png,jpg}')
     .pipe($.responsive({
@@ -51,7 +65,7 @@ gulp.task('resize', function() {
             width: 800,
             rename: {suffix: '_2x'},
             format: 'webp',
-            quality: 75
+            quality: 75 
         },{
             width: 800,
             quality: 80
@@ -89,8 +103,26 @@ gulp.task('resize', function() {
     .pipe(gulp.dest('app/img'));
 });
 
-// Clean output directory
-gulp.task('clean', () => del(['app/*'], {dot: true}));
+// Resize thumbnail image files
+gulp.task('thumbnail', () => {
+    return gulp.src('resources/img/thumbnail/*')
+    .pipe($.responsive({
+        '*.jpg': [{
+            width: 250,
+        }, {
+            width: 500,
+            rename: {suffix: '-500'}
+        }],
+    }, {
+        // Use progressive (interlace) scan for jpg and png output
+        progressive: true,
+        // Strip all metadata
+        withMetadata: false,
+        // Turn on enlargement 
+        withoutEnlargement: false,
+    }))
+    .pipe(gulp.dest('app/img'));
+});
 
 // Build production files, the default task
 /* gulp.task('default', ['clean'], cb => 
