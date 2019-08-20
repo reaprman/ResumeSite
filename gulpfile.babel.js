@@ -68,7 +68,8 @@ gulp.task('resize', function() {
             quality: 75 
         },{
             width: 800,
-            quality: 80
+            quality: 80,
+            format: 'jpg'
         }, {
             width: 1600,
             rename: {suffix: '-1600'},
@@ -109,9 +110,11 @@ gulp.task('thumbnail', () => {
     .pipe($.responsive({
         '*.jpg': [{
             width: 250,
+            format: 'jpg'
         }, {
             width: 500,
-            rename: {suffix: '-500'}
+            rename: {suffix: '-500'},
+            format: 'jpg'
         }],
     }, {
         // Use progressive (interlace) scan for jpg and png output
