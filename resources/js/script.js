@@ -69,13 +69,15 @@ function modalToggle(imgPath){
     }else{
         modal.classList.toggle('show-modal');
     }
-
+    firstFocus.focus();
+    if(!firstRun){
+        slides[slideIdx-1].classList.remove('active');
+        dots[slideIdx-1].classList.remove('dot-active');
+        slideIdx = 1;
+        firstRun = true;
+        return;
+    }
     firstRun = false;
-    if(modal.addEventListener){
-        modal.addEventListener("load", () =>{
-            firstFocus.focus();
-        })
-    }   
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
@@ -115,10 +117,6 @@ function modalToggle(imgPath){
     function closeModal(){
         modal.classList.toggle('show-modal');
         prevFocusedElement.focus();
-        slides[slideIdx-1].classList.remove('active');
-        dots[slideIdx-1].classList.remove('dot-active');
-        slideIdx = 1;
-        firstRun = true;
     }
 }
 
