@@ -3,11 +3,13 @@ let slides = document.getElementsByClassName('item');
 let dots = document.getElementsByClassName('dot');
 let firstRun = true;
 let prevFocusedElement;
+let firstFocus;
 const modal = document.getElementById('modal');
 
 AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
     rage();
+    modalTrap(); 
 });
 document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", () =>{
     let nav = document.getElementsByClassName("main-nav")[0];
@@ -33,10 +35,6 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
     }
 })
 
-modal.addEventListener('load', (event) => {
-    modalTrap();
-})
-
 const rage = () => {
 
     window.addEventListener('click', function(event){
@@ -49,7 +47,7 @@ const modalTrap = () => {
     let focusableElementString = 'a[href], button:not([disabled])';
     let focusableElement = modal.querySelectorAll(focusableElementString);
     focusableElement = Array.prototype.slice.call(focusableElement);
-    let firstFocus = focusableElement[0];
+    firstFocus = focusableElement[0];
     let lastFocus = focusableElement[focusableElement.length - 1];
     modal.addEventListener('keydown', trapTapKey);
 
@@ -103,6 +101,11 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
+    if(!modal.classList.contains('show-modal')){
+        prevFocusedElement.focus();
+    }else{
+        firstFocus.focus();
+    }
 }
 
 function fillModalImg(imgPath){
