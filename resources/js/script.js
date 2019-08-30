@@ -52,22 +52,25 @@ const modalTrap = () => {
 
     function trapTapKey(event){
         if(event.keyCode == 9){
-            if(document.activeElement == firstFocus){
+            if(document.activeElement == lastFocus){
                 event.preventDefault();
-                lastFocus.focus();
-            }else{
-                if(document.activeElement == lastFocus){
+                firstFocus.focus();
+                }
+            if(event.keyCode == shiftKey){
+                if(document.activeElement = firstFocus){
                     event.preventDefault();
-                    firstFocus.focus();
+                    lastFocus.focus();
                 }
             }
-        }
+            }
         if(event.keyCode == 39){
             modalArrows(1);
-        }else{
-            if(event.keyCode == 37){
-                modalArrows(-1);
-            }
+        }
+        if(event.keyCode == 37){
+            modalArrows(-1);
+        }
+        if(event.keyCode == 27){
+            modalToggle(this.id);
         }
     }
 }
