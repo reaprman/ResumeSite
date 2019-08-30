@@ -2,10 +2,13 @@ let slideIdx = 1;
 let slides = document.getElementsByClassName('item');
 let dots = document.getElementsByClassName('dot');
 let firstRun = true;
+let prevFocusedElement;
+const modal = document.getElementById('modal');
 
 AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
     rage();
+    modalTrap();
 });
 document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", () =>{
     let nav = document.getElementsByClassName("main-nav")[0];
@@ -15,8 +18,6 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         nav.style.display = "none";
     }
 
-    
-    
     let icon = document.querySelector(".mobile-nav-icon i");
     if(icon.classList.contains("ion-md-menu")){
         icon.classList.toggle("ion-md-menu");
@@ -26,7 +27,6 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         icon.classList.toggle("ion-md-close");
     }
     
-    const modal = document.getElementById('modal');
     if(modal.classList.contains('show-modal')){
         //modal.classList.toggle('show-modal');
         // fix it here
@@ -42,10 +42,40 @@ const rage = () => {
         }
     })
 }
+const modalTrap = () => {
+    let focusableElementString = 'a[href], button:not([disabled])';
+    let focusableElement = modal.querySelectorAll(focusableElementString);
+    focusableElement = Array.prototype.slice.call(focusableElement);
+    let firstFocus = focusableElement[0];
+    let lastFocus = focusableElement[focusableElement.length - 1];
+    modal.addEventListener('keydown', trapTapKey);
+
+    function trapTapKey(event){
+        if(event.keyCode == 9){
+            if(document.activeElement == firstFocus){
+                event.preventDefault();
+                lastFocus.focus();
+            }else{
+                if(document.activeElement == lastFocus){
+                    event.preventDefault();
+                    firstFocus.focus();
+                }
+            }
+        }
+        if(event.keyCode == 39){
+            modalArrows(1);
+        }else{
+            if(event.keyCode == 37){
+                modalArrows(-1);
+            }
+        }
+    }
+}
+
 function modalToggle(imgPath){
+    prevFocusedElement = document.activeElement;
     slides[slideIdx-1].classList.add('active');
     dots[slideIdx-1].classList.add('dot-active');
-    const modal = document.getElementById('modal');
     if(!modal.classList.contains('show-modal')){
        fillModalImg(imgPath); 
     }
