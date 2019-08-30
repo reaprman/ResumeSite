@@ -43,7 +43,7 @@ const rage = () => {
         }
     })
 }
-async function modalToggle(imgPath){
+function modalToggle(imgPath){
     prevFocusedElement = document.activeElement;
     modal.addEventListener('keydown', trapTapKey);
     let focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), button:not([disabled])';
@@ -71,7 +71,6 @@ async function modalToggle(imgPath){
     }
 
     firstRun = false;
-    await firstFocus.focus();
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
@@ -116,6 +115,7 @@ async function modalToggle(imgPath){
         slideIdx = 1;
         firstRun = true;
     }
+    firstFocus.focus();
 }
 
 function fillModalImg(imgPath){
