@@ -52,19 +52,15 @@ const modalTrap = () => {
 
     function trapTapKey(event){
         if(event.keyCode == 9){
-            if(document.activeElement == lastFocus){
-                event.preventDefault();
-                firstFocus.focus();
-                }
             if(event.shiftKey){
                 if(document.activeElement == firstFocus){
                     event.preventDefault();
                     lastFocus.focus();
-                }else{
-                    if(document.activeElement == lastFocus){
-                        event.preventDefault();
-                        firstFocus.focus();
-                    }
+                }
+            } else {
+                if(document.activeElement == lastFocus){
+                    event.preventDefault();
+                    firstFocus.focus();
                 }
             }
         }
