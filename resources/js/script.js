@@ -43,7 +43,7 @@ const rage = () => {
         }
     })
 }
-function modalToggle(imgPath){
+async function modalToggle(imgPath){
     prevFocusedElement = document.activeElement;
     modal.addEventListener('keydown', trapTapKey);
     let focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), button:not([disabled])';
@@ -71,7 +71,7 @@ function modalToggle(imgPath){
     }
 
     firstRun = false;
-    firstFocus.focus();
+    await firstFocus.focus();
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
