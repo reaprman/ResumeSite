@@ -2,6 +2,8 @@ let slideIdx = 1;
 let slides = document.getElementsByClassName('item');
 let dots = document.getElementsByClassName('dot');
 let firstRun = true;
+let prevFocusedElement;
+const modal = document.getElementById('modal');
 
 AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -26,7 +28,6 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         icon.classList.toggle("ion-md-close");
     }
     
-    const modal = document.getElementById('modal');
     if(modal.classList.contains('show-modal')){
         //modal.classList.toggle('show-modal');
         // fix it here
@@ -43,9 +44,15 @@ const rage = () => {
     })
 }
 function modalToggle(imgPath){
+    prevFocusedElement = document.activeElement;
+    modal.addEventListener('keydown', trapTapKey);
+    let focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), button:not([disabled])';
+    let focusableElement = modal.querySelectorAll(focusableElementsString);
+    focusableElement = Array.prototype.slice.call(focusableElement);
+    let firstFocus = focusableElement[0];
+    let lastFocus = focusableElement[focusableElement.length-1];
     slides[slideIdx-1].classList.add('active');
     dots[slideIdx-1].classList.add('dot-active');
-    const modal = document.getElementById('modal');
     if(!modal.classList.contains('show-modal')){
        fillModalImg(imgPath); 
     }
@@ -57,7 +64,12 @@ function modalToggle(imgPath){
         icon.classList.toggle("ion-md-close");
     }
      
-    modal.classList.toggle('show-modal');
+    if(modal.classList.contains('show-modal')){
+        closeModal();
+    }else{
+        modal.classList.toggle('show-modal');
+    }
+    firstFocus.focus();
     if(!firstRun){
         slides[slideIdx-1].classList.remove('active');
         dots[slideIdx-1].classList.remove('dot-active');
@@ -66,6 +78,37 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
+
+    function trapTapKey(event){
+        if(event.keyCode == 9) {
+            if(event.shiftKey){
+                if(document.activeElement == firstFocus){
+                    event.preventDefault();
+                    lastFocus.focus();
+                }else{
+                    if(document.activeElement == lastFocus){
+                        event.preventDefault();
+                        firstFocus.focus();
+                    }
+                }
+                if(event.keyCode == 27){
+                    closeModal();
+                }
+            }
+        }
+        // traverse through images when arrow keys pressed
+        if(event.keyCode == 39){
+            modalArrows(1);
+        }
+        if(event.keyCode == 37){
+            modalArrows(-1);
+        }
+    }
+
+    function closeModal(){
+        modal.classList.toggle('show-modal');
+        prevFocusedElement.focus();
+    }
 }
 
 function fillModalImg(imgPath){
