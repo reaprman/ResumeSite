@@ -69,7 +69,7 @@ function modalToggle(imgPath){
     }else{
         modal.classList.toggle('show-modal');
     }
-    firstFocus.focus();
+
     if(!firstRun){
         slides[slideIdx-1].classList.remove('active');
         dots[slideIdx-1].classList.remove('dot-active');
@@ -78,6 +78,7 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
+    firstFocus.focus();
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
@@ -91,9 +92,14 @@ function modalToggle(imgPath){
                         firstFocus.focus();
                     }
                 }
-                if(event.keyCode == 27){
-                    closeModal();
-                }
+            }
+            if(document.activeElement == firstFocus){
+                event.preventDefault();
+                lastFocus.focus();
+            }
+            if(document.activeElement == lastFocus){
+                event.preventDefault();
+                firstFocus.focus();
             }
         }
         // traverse through images when arrow keys pressed
@@ -102,6 +108,10 @@ function modalToggle(imgPath){
         }
         if(event.keyCode == 37){
             modalArrows(-1);
+        }
+        // handles escape button press
+        if(event.keyCode == 27){
+            closeModal();
         }
     }
 
