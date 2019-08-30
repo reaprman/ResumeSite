@@ -71,8 +71,11 @@ function modalToggle(imgPath){
     }
 
     firstRun = false;
-    firstFocus.focus();
-   
+    if(modal.addEventListener){
+        modal.addEventListener("load", () =>{
+            firstFocus.focus();
+        })
+    }   
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
