@@ -2,8 +2,6 @@ let slideIdx = 1;
 let slides = document.getElementsByClassName('item');
 let dots = document.getElementsByClassName('dot');
 let firstRun = true;
-let prevFocusedElement;
-const modal = document.getElementById('modal');
 
 AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -28,6 +26,7 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         icon.classList.toggle("ion-md-close");
     }
     
+    const modal = document.getElementById('modal');
     if(modal.classList.contains('show-modal')){
         //modal.classList.toggle('show-modal');
         // fix it here
@@ -44,15 +43,9 @@ const rage = () => {
     })
 }
 function modalToggle(imgPath){
-    prevFocusedElement = document.activeElement;
-    modal.addEventListener('keydown', trapTapKey);
-    let focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), button:not([disabled])';
-    let focusableElement = modal.querySelectorAll(focusableElementsString);
-    focusableElement = Array.prototype.slice.call(focusableElement);
-    let firstFocus = focusableElement[0];
-    let lastFocus = focusableElement[focusableElement.length-1];
     slides[slideIdx-1].classList.add('active');
     dots[slideIdx-1].classList.add('dot-active');
+    const modal = document.getElementById('modal');
     if(!modal.classList.contains('show-modal')){
        fillModalImg(imgPath); 
     }
@@ -64,12 +57,7 @@ function modalToggle(imgPath){
         icon.classList.toggle("ion-md-close");
     }
      
-    if(modal.classList.contains('show-modal')){
-        closeModal();
-    }else{
-        modal.classList.toggle('show-modal');
-    }
-    firstFocus.focus();
+    modal.classList.toggle('show-modal');
     if(!firstRun){
         slides[slideIdx-1].classList.remove('active');
         dots[slideIdx-1].classList.remove('dot-active');
@@ -78,6 +66,7 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
+<<<<<<< HEAD
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
@@ -118,6 +107,8 @@ function modalToggle(imgPath){
         modal.classList.toggle('show-modal');
         prevFocusedElement.focus();
     }
+=======
+>>>>>>> parent of 278d3c1... improvement: change to modal
 }
 
 function fillModalImg(imgPath){
