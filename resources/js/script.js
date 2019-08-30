@@ -66,49 +66,6 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
-<<<<<<< HEAD
-
-    function trapTapKey(event){
-        if(event.keyCode == 9) {
-            if(event.shiftKey){
-                if(document.activeElement == firstFocus){
-                    event.preventDefault();
-                    lastFocus.focus();
-                }else{
-                    if(document.activeElement == lastFocus){
-                        event.preventDefault();
-                        firstFocus.focus();
-                    }
-                }
-            }
-            if(document.activeElement == firstFocus){
-                event.preventDefault();
-                lastFocus.focus();
-            }
-            if(document.activeElement == lastFocus){
-                event.preventDefault();
-                firstFocus.focus();
-            }
-        }
-        // traverse through images when arrow keys pressed
-        if(event.keyCode == 39){
-            modalArrows(1);
-        }
-        if(event.keyCode == 37){
-            modalArrows(-1);
-        }
-        // handles escape button press
-        if(event.keyCode == 27){
-            closeModal();
-        }
-    }
-
-    function closeModal(){
-        modal.classList.toggle('show-modal');
-        prevFocusedElement.focus();
-    }
-=======
->>>>>>> parent of 278d3c1... improvement: change to modal
 }
 
 function fillModalImg(imgPath){
