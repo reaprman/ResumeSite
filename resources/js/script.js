@@ -71,9 +71,8 @@ function modalToggle(imgPath){
     }
 
     firstRun = false;
-    modal.addEventListener("DOMContentLoaded", () => {
-        firstFocus.focus();
-    });
+    firstFocus.focus();
+   
 
     function trapTapKey(event){
         if(event.keyCode == 9) {
