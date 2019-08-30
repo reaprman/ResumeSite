@@ -57,9 +57,14 @@ const modalTrap = () => {
                 firstFocus.focus();
                 }
             if(event.shiftKey){
-                if(document.activeElement = firstFocus){
+                if(document.activeElement == firstFocus){
                     event.preventDefault();
                     lastFocus.focus();
+                }else{
+                    if(document.activeElement == lastFocus){
+                        event.preventDefault();
+                        firstFocus.focus();
+                    }
                 }
             }
         }
