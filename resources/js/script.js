@@ -8,7 +8,6 @@ const modal = document.getElementById('modal');
 AOS.init();
 document.addEventListener('DOMContentLoaded', (event) => {
     rage();
-    modalTrap();
 });
 document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", () =>{
     let nav = document.getElementsByClassName("main-nav")[0];
@@ -32,6 +31,10 @@ document.getElementsByClassName("mobile-nav-icon")[0].addEventListener("click", 
         // fix it here
         modalToggle(this.id);
     }
+})
+
+modal.addEventListener('load', (event) => {
+    modalTrap();
 })
 
 const rage = () => {
