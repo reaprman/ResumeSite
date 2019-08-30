@@ -56,13 +56,13 @@ const modalTrap = () => {
                 event.preventDefault();
                 firstFocus.focus();
                 }
-            if(event.keyCode == shiftKey){
+            if(event.shiftKey){
                 if(document.activeElement = firstFocus){
                     event.preventDefault();
                     lastFocus.focus();
                 }
             }
-            }
+        }
         if(event.keyCode == 39){
             modalArrows(1);
         }
