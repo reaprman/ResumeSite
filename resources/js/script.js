@@ -70,13 +70,6 @@ function modalToggle(imgPath){
         modal.classList.toggle('show-modal');
     }
 
-    if(!firstRun){
-        slides[slideIdx-1].classList.remove('active');
-        dots[slideIdx-1].classList.remove('dot-active');
-        slideIdx = 1;
-        firstRun = true;
-        return;
-    }
     firstRun = false;
     firstFocus.focus();
 
@@ -118,6 +111,10 @@ function modalToggle(imgPath){
     function closeModal(){
         modal.classList.toggle('show-modal');
         prevFocusedElement.focus();
+        slides[slideIdx-1].classList.remove('active');
+        dots[slideIdx-1].classList.remove('dot-active');
+        slideIdx = 1;
+        firstRun = true;
     }
 }
 
