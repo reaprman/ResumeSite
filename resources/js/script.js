@@ -91,7 +91,7 @@ function modalToggle(imgPath){
         icon.classList.toggle("ion-md-menu");
         icon.classList.toggle("ion-md-close");
     }
-     
+
     if(!firstRun){
         slides[slideIdx-1].classList.remove('active');
         dots[slideIdx-1].classList.remove('dot-active');
@@ -100,13 +100,7 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
-    if(modal.classList.contains('show-modal')){
-        modal.classList.toggle('show-modal');
-        prevFocusedElement.focus();
-        return;
-    }
-    modal.classList.toggle('show-modal');
-    firstFocus.focus();
+    modal.classList.toggle('show-modal'); 
 }
 
 function fillModalImg(imgPath){
