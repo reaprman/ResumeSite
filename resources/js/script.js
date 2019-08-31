@@ -100,13 +100,13 @@ function modalToggle(imgPath){
         return;
     }
     firstRun = false;
-    if(!modal.classList.contains('show-modal')){
+    if(modal.classList.contains('show-modal')){
         modal.classList.toggle('show-modal');
         prevFocusedElement.focus();
-    }else{
-        modal.classList.toggle('show-modal');
-        firstFocus.focus();
+        return;
     }
+    modal.classList.toggle('show-modal');
+    firstFocus.focus();
 }
 
 function fillModalImg(imgPath){
