@@ -92,6 +92,7 @@ function modalToggle(imgPath){
         icon.classList.toggle("ion-md-close");
     }
 
+    modal.classList.toggle('show-modal');
     if(!firstRun){
         slides[slideIdx-1].classList.remove('active');
         dots[slideIdx-1].classList.remove('dot-active');
@@ -99,8 +100,7 @@ function modalToggle(imgPath){
         firstRun = true;
         return;
     }
-    firstRun = false;
-    modal.classList.toggle('show-modal'); 
+    firstRun = false; 
 }
 
 function fillModalImg(imgPath){
