@@ -43,6 +43,12 @@ const rage = () => {
         }
     })
 }
+
+document.getElementsByClassName("main-nav")[0].addEventListener('click',() =>{
+    if(modal.classList.contains('show-modal')){
+        modalToggle(this.id);
+    }
+})
 const modalTrap = () => {
     let focusableElementString = 'a[href], button:not([disabled])';
     let focusableElement = modal.querySelectorAll(focusableElementString);
