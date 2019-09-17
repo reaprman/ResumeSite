@@ -27,6 +27,7 @@
 //import path from 'path';
 import gulp from 'gulp';
 import del from 'del';
+import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 
@@ -43,12 +44,12 @@ gulp.task('clean', () => del(['app/*'], {dot: true}));
 
 // Optimize images
 gulp.task('images', () =>
-    gulp.src('app/img/**/*')
+    gulp.src('resources/css/img/**/*')
     .pipe($.cache($.imagemin({
         progressive: true,
         interlaced: true
     })))
-    .pipe(gulp.dest('app/img'))
+    .pipe(gulp.dest('app/css/img'))
     .pipe($.size({title: 'image'}))
 );
 
@@ -58,40 +59,22 @@ gulp.task('resize', function() {
     .pipe($.responsive({
         '*.jpg': [{
             width: 400,
-            rename: {suffix: '_1x'},
+            rename: {suffix: '_1px'},
             format: 'webp',
             quality: 70
-        }, {
-            width: 800,
-            rename: {suffix: '_2x'},
-            format: 'webp',
-            quality: 75 
         },{
-            width: 800,
+            width: 400,
             quality: 80,
             format: 'jpg'
-        }, {
-            width: 1600,
-            rename: {suffix: '-1600'},
-            format: 'webp'
         }],
         '*.png': [{
             width: 400,
-            rename: {suffix: '_1x'},
+            rename: {suffix: '_1px'},
             format: 'webp',
             quality: 70
-        }, {
-            width: 800,
-            rename: {suffix: '_2x'},
-            format: 'webp',
-            quality: 75
-        }, {
-            width: 800,
+        },{
+            width: 400,
             quality: 80
-        }, {
-            width: 1600,
-            rename: {suffix: '-1600'},
-            format: 'webp'
         }],
     }, {
         // Use progressive (interlace) scan for jpg and png output
@@ -127,11 +110,115 @@ gulp.task('thumbnail', () => {
     .pipe(gulp.dest('app/img'));
 });
 
+// Lint JavaScript
+gulp.task('lint', () =>
+    gulp.src(['app/js/**/*.js', 'app/sw.js', '!node_modules/**'], {allowEmpty: true})
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
+);
+
+// Copy all files at the root level (app)
+gulp.task('copy', () => 
+    gulp.src([
+        'resouces/*',
+        '!resources/index.html'
+    ], {
+        dot: true
+    }).pipe(gulp.dest('app'))
+      .pipe($.size({title: 'copy'}))
+);
+
+// Scan your HTML for assests & optimize them
+gulp.task('html', () => {
+    return gulp.src('app/**/*.html')
+    .pipe($.useref({
+        searchPath: '{.tmp, app}',
+        noAssets: true
+    }))
+
+    // Minify any html
+    .pipe($.if('*.html', $.htmlmin({
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: true,
+      removeRedundantAttributes: true,
+      removeEmptyAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeOptionalTags: true
+    })))
+    // Output files
+    .pipe($.if('html', $.size({title: 'html', showFiles: true})))
+    .pipe(gulp.dest('./'))
+});
+
+// Compile and automatically prefix stylesheets
+gulp.task('styles', () => {
+    const AUTOPREFIXER_BROWSERS = [
+        'ie >= 10',
+        'ie_mob >= 10',
+        'ff >= 30',
+        'chrome >= 34',
+        'safari >= 7',
+        'opera >= 23',
+        'ios >= 7',
+        'android >= 4.4',
+        'bb >= 10'
+    ];
+
+    // For best performance, don't add Sass partials to 'gulp.src'
+    return gulp.src([
+        'resources/css/**/*.css',
+        'resources/css/**/*.scss',
+        '!resources/img/**'
+    ])
+        .pipe($.newer('.tmp/css'))
+        .pipe($.sourcemaps.init())
+        .pipe($.sass({
+            precition: 10
+        }).on('error', $.sass.logError))
+        .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+        .pipe(gulp.dest('.tmp/css'))
+        // Concatenate and minify styles
+        .pipe($.if('*.css', $.cssnano()))
+        .pipe($.size({title: 'css'}))
+        .pipe($.sourcemaps.write('./'))
+        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('.tmp/css'));
+});
+
+
+//Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
+// to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
+// `.babelrc` file.
+
+gulp.task('scripts', () => 
+    gulp.src(['./resources/js/**/*.js'])
+        .pipe($.newer('.tmp/js'))
+        .pipe($.sourcemaps.init())
+        .pipe($.babel())
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest('.tmp/js'))
+        .pipe($.uglify({
+            output:{
+                comments: 'some'
+            }
+        }))
+        // Output files
+        .pipe($.size({title: 'js'}))
+        .pipe($.sourcemaps.write('.'))
+        .pipe(gulp.dest('app/js'))
+        .pipe(gulp.dest('.tmp/js'))
+);
+
 // Build production files, the default task
-/* gulp.task('default', ['clean'], cb => 
+ gulp.task('default', gulp.series('clean', cb => {
     runSequence(
         'copy',
-        ['resize'],
+        ['html', 'styles', 'scripts', 'resize', 'images', 'thumbnail','lint'],
         cb
     )
-); */
+ })
+); 
