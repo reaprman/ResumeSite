@@ -39,8 +39,23 @@ const runSequence = require('run-sequence');
 const babel = require('gulp-babel');
 const gulpIf = require('gulp-if');
 
+
+// Changes for SW import
+gulp.task('sw', () => {
+    const b = browserify({
+        debug: true
+    });
+    return b
+        .transform(babelify)
+        .require('resources/sw.js', {entry: true})
+        .bundle()
+        .pipe(source('sw.js'))
+        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('.tmp'))
+});
+
 // Clean output directory
-gulp.task('clean', () => del(['app/*'], {dot: true}));
+gulp.task('clean', () => del(['.tmp', 'app/*'], {dot: true}));
 
 // Optimize images
 gulp.task('images', () =>
@@ -59,9 +74,9 @@ gulp.task('resize', function() {
     .pipe($.responsive({
         '*.jpg': [{
             width: 400,
-            rename: {suffix: '_1px'},
+            rename: {suffix: '-1x'},
             format: 'webp',
-            quality: 70
+            quality: 80
         },{
             width: 400,
             quality: 80,
@@ -69,9 +84,9 @@ gulp.task('resize', function() {
         }],
         '*.png': [{
             width: 400,
-            rename: {suffix: '_1px'},
+            rename: {suffix: '-1x'},
             format: 'webp',
-            quality: 70
+            quality: 80
         },{
             width: 400,
             quality: 80
@@ -121,17 +136,17 @@ gulp.task('lint', () =>
 // Copy all files at the root level (app)
 gulp.task('copy', () => 
     gulp.src([
-        'resouces/*',
-        '!resources/index.html'
+        'resources/favicons/*',
+        //'!resources/index.html'
     ], {
         dot: true
-    }).pipe(gulp.dest('app'))
+    }).pipe(gulp.dest('app/favicons'))
       .pipe($.size({title: 'copy'}))
 );
 
 // Scan your HTML for assests & optimize them
 gulp.task('html', () => {
-    return gulp.src('app/**/*.html')
+    return gulp.src('resources/**/*.html')
     .pipe($.useref({
         searchPath: '{.tmp, app}',
         noAssets: true
@@ -151,7 +166,7 @@ gulp.task('html', () => {
     })))
     // Output files
     .pipe($.if('html', $.size({title: 'html', showFiles: true})))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('.'))
 });
 
 // Compile and automatically prefix stylesheets
@@ -172,7 +187,7 @@ gulp.task('styles', () => {
     return gulp.src([
         'resources/css/**/*.css',
         'resources/css/**/*.scss',
-        '!resources/img/**'
+        '!resources/css/img/**'
     ])
         .pipe($.newer('.tmp/css'))
         .pipe($.sourcemaps.init())

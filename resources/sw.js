@@ -7,12 +7,12 @@ self.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/resources/css/style.css',
-                '/resources/css/img/profile-pic.jpg',
+                '/app/css/style.css',
+                '/app/css/img/profile-pic.jpg',
                 '/vendors/css/animate.css',
                 '/vendors/css/normalize.css',
                 '/sw.js',
-                '/resources/js/script.js',
+                '/app/js/script.js',
                 'https://unpkg.com/aos@next/dist/aos.js',
                 'https://unpkg.com/aos@next/dist/aos.css',
                 'https://unpkg.com/ionicons@4.4.7/dist/css/ionicons.min.css'
@@ -43,10 +43,10 @@ self.addEventListener('fetch', function(event) {
 
 function servePhoto(request) {
     let storageUrl = '';
-    if(request.url.includes("jpg")){
-        storageUrl = request.url.replace(/-\d+px\.jpg$/, '');
+    if(request.url.includes("webp")){
+        storageUrl = request.url.replace(/-\d+x\.webp$/, '')
     }else{
-        storageUrl = request.url.replace(/-\d+px\.webp$/, '');
+        storageUrl = request.url            // .replace(/-\d+x\.jpg$/, '');
     }   
 
     return caches.open(projetImgsCache).then(function(cache) {
