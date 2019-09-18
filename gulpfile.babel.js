@@ -62,7 +62,9 @@ gulp.task('images', () =>
     gulp.src('resources/css/img/**/*')
     .pipe($.cache($.imagemin({
         progressive: true,
-        interlaced: true
+        interlaced: true,
+        optimizationLevel: 5,
+        svgoPlugins: [{ removeViewBox: true}]
     })))
     .pipe(gulp.dest('app/css/img'))
     .pipe($.size({title: 'image'}))

@@ -206,11 +206,11 @@ header {
 }
 .work-company a{
     text-decoration: none;
-    color: #2c80b8
+    color: #1B4F74
 }
 .work-location{
     margin-bottom: 10px;
-    color: #d2600c /*6D4C41*/
+    color: #803A00 /*6D4C41*/
 }
 .work-title{
     margin-bottom: 5px;
@@ -228,7 +228,7 @@ header {
 /***************************************/
  .sect-bio {
     color: #fff;
-    background-color: #3498db;
+    background-color: #155C8E;
 }
 .sect-bio h2:after{
     background-color:#000;
