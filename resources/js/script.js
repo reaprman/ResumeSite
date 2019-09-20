@@ -142,7 +142,7 @@ function displayModal(idx){
         slideIdx = 1;
     }
     if(idx == 0){ slideIdx = slides.length;}
-    for (i = 0; i < slides.length; i++){
+    for (let i = 0; i < slides.length; i++){
         if(slides[i].classList.contains('active')){
             slides[i].classList.remove('active');
             slides[slideIdx-1].classList.add('active');
